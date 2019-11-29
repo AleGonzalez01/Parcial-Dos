@@ -10,11 +10,13 @@ public class Personaje implements Runnable{
 	PImage imagen;
 	boolean dale= false;
 	int velocidad = 1;
+	
 public Personaje(float posX, float posY, int edad, int numero, PApplet p) {
 	this.edad=edad;
 	this.numero=numero;
 	this.p=p;
-	new Thread(this).start();
+	this.posX=posX;
+	this.posY=posY;
 	imagen=p.loadImage("data/bart_simpson.png");
 }
 
@@ -29,13 +31,18 @@ public void run() {
 	}
 }
 public void pintar() {
-	posX= p.random(200, 1000);
-p.image(imagen, posX, p.random(100,800),50,100);
+	
+p.image(imagen, posX, posY,50,100);
 }
 public void mover() {
 	int ancho = 800;
 	if(posX<200 || posX>ancho-10) {
-		velocidad*=-1;
+		velocidad+=1;
+	}
+	System.out.println("holi");
+	if(posX<1000 || posX>ancho-10) {
+		velocidad-=1;
 	}
 }
+
 }

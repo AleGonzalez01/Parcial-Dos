@@ -24,12 +24,18 @@ public class Logica {
 		}
 	}
 	public void mouse() {
-		posX= p.random(200, 1000);
+		posX= p.random(200, 900);
 		posY= p.random(100, 800);
 		edad= (int) p.random(40);
 		numero= (int) p.random(100);
 		personajes.add(new Personaje(posX, posY, edad, numero, p));
 		PApplet.println(personajes.size());
+		for (int i = 0; i < personajes.size(); i++) {
+			new Thread(personajes.get(i)).start();
+		}
+		
+		
+		
 	}
 
 }
