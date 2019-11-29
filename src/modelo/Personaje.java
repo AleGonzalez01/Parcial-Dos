@@ -34,8 +34,8 @@ p.image(imagen, posX+velocidad, posY,65,100);
 }
 public void mover() {
 		velocidad+=1;
-	if(posX==900) {
-		velocidad*=-10;
+	if(posX>800) {
+		velocidad*=-100;
 	}
 }
 

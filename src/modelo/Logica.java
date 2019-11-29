@@ -32,9 +32,10 @@ public class Logica {
 		numero= (int) p.random(100);
 		personajes.add(new Personaje(posX, posY, edad, numero, p));
 		for (int i = 0; i < personajes.size(); i++) {
-		 
 		if(PApplet.dist(p.mouseX, p.mouseY, personajes.get(i).getPosX(), personajes.get(i).getPosY())<10) {
 			for (int j = 0; j < personajesOR.length; j++) {
+
+				
 			}
 		}
 		}
