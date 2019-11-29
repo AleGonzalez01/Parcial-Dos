@@ -11,16 +11,18 @@ public class Logica {
 	float posY;
 	int edad;
 	int numero;
+	int [] personajesOR;
 	public Logica(PApplet p){
 		this.p=p;
-		
 		this.personajes =new ArrayList<Personaje>();
+		this.personajesOR = new int[4];
 	}
 	
 	public void pintar() {
 		for (int i = 0; i < personajes.size(); i++) {
 			personajes.get(i).pintar();
-			
+			new Thread(personajes.get(i)).start();
+
 		}
 	}
 	public void mouse() {
@@ -29,9 +31,12 @@ public class Logica {
 		edad= (int) p.random(40);
 		numero= (int) p.random(100);
 		personajes.add(new Personaje(posX, posY, edad, numero, p));
-		PApplet.println(personajes.size());
 		for (int i = 0; i < personajes.size(); i++) {
-			new Thread(personajes.get(i)).start();
+		 
+		if(PApplet.dist(p.mouseX, p.mouseY, personajes.get(i).getPosX(), personajes.get(i).getPosY())<10) {
+			for (int j = 0; j < personajesOR.length; j++) {
+			}
+		}
 		}
 		
 		

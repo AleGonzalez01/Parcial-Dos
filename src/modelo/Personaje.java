@@ -3,7 +3,7 @@ package modelo;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Personaje implements Runnable{
+public class Personaje extends Thread{
 	float posX,posY;
 	int edad, numero;
 	PApplet p;
@@ -21,28 +21,86 @@ public Personaje(float posX, float posY, int edad, int numero, PApplet p) {
 }
 
 public void run() {
-	while(dale) {
-		mover();
+	mover();
 	try {
 		Thread.sleep(50);
 	} catch (InterruptedException e) {
 		e.printStackTrace();
 	}
-	}
 }
 public void pintar() {
 	
-p.image(imagen, posX, posY,50,100);
+p.image(imagen, posX+velocidad, posY,65,100);
 }
 public void mover() {
-	int ancho = 800;
-	if(posX<200 || posX>ancho-10) {
 		velocidad+=1;
+	if(posX==900) {
+		velocidad*=-10;
 	}
-	System.out.println("holi");
-	if(posX<1000 || posX>ancho-10) {
-		velocidad-=1;
-	}
+}
+
+public float getPosX() {
+	return posX;
+}
+
+public void setPosX(float posX) {
+	this.posX = posX;
+}
+
+public float getPosY() {
+	return posY;
+}
+
+public void setPosY(float posY) {
+	this.posY = posY;
+}
+
+public int getEdad() {
+	return edad;
+}
+
+public void setEdad(int edad) {
+	this.edad = edad;
+}
+
+public int getNumero() {
+	return numero;
+}
+
+public void setNumero(int numero) {
+	this.numero = numero;
+}
+
+public PApplet getP() {
+	return p;
+}
+
+public void setP(PApplet p) {
+	this.p = p;
+}
+
+public PImage getImagen() {
+	return imagen;
+}
+
+public void setImagen(PImage imagen) {
+	this.imagen = imagen;
+}
+
+public boolean isDale() {
+	return dale;
+}
+
+public void setDale(boolean dale) {
+	this.dale = dale;
+}
+
+public int getVelocidad() {
+	return velocidad;
+}
+
+public void setVelocidad(int velocidad) {
+	this.velocidad = velocidad;
 }
 
 }
