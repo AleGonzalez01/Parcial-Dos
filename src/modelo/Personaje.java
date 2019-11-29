@@ -36,7 +36,7 @@ public void mover() {
 		velocidad+=1;
 	
 	
-	if(posX+velocidad>800) {
+	if(posX+velocidad>=800) {
 		velocidad*=-100;
 	}
 }

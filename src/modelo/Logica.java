@@ -11,11 +11,11 @@ public class Logica {
 	float posY;
 	int edad;
 	int numero;
-	int [] personajesOR;
+	 static String [] personajesOR;
 	public Logica(PApplet p){
 		this.p=p;
 		this.personajes =new ArrayList<Personaje>();
-		this.personajesOR = new int[4];
+		this.personajesOR = new String[4];
 	}
 	
 	public void pintar() {
@@ -34,7 +34,6 @@ public class Logica {
 		for (int i = 0; i < personajes.size(); i++) {
 		if(PApplet.dist(p.mouseX, p.mouseY, personajes.get(i).getPosX(), personajes.get(i).getPosY())<10) {
 			for (int j = 0; j < personajesOR.length; j++) {
-
 				
 			}
 		}
@@ -43,5 +42,11 @@ public class Logica {
 		
 		
 	}
+	
+	public static void excepcion()throws Excepcion{
+        if(personajesOR [4] != null){
+            throw new Excepcion("No más");
+        }
 
+}
 }

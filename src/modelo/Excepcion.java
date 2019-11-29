@@ -1,5 +1,10 @@
 package modelo;
 
-public class Excepcion {
+public class Excepcion extends Exception{
+	
+	
 
+	public Excepcion(String msg) {
+        super(msg);
+    }
 }

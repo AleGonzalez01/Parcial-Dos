@@ -1,5 +1,6 @@
 package vista;
 
+import modelo.Excepcion;
 import modelo.Logica;
 import processing.core.PApplet;
 
@@ -21,6 +22,11 @@ public class Main extends PApplet {
 	public void draw() {
 		background(255);
 		logica.pintar();
+		try {
+			Logica.excepcion();
+		} catch (Excepcion e) {
+			e.printStackTrace();
+		}
 
 	}
 	
